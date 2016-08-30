@@ -1,30 +1,23 @@
-// We import the package that we installed earlier
 const SlackBot = require('slackbots');
 
-// We create a new Slack bot using the Token and name from before
+// create a bot
 const bot = new SlackBot({
-  token: process.env.SLACK_TOKEN,
-  name: 'kungbot'
+    token: process.env.SLACK_TOKEN, // Add a bot https://my.slack.com/services/new/bot and put the token
+    name: 'KungBot'
 });
 
+bot.on('start', function() {
+    // define channel, where bot exist. You can adjust it there https://my.slack.com/services
+    bot.postMessageToChannel('general', 'Hello!', { icon_emoji: ':star:' });
+});
+
+// An array with compliments
 const compliments = [
   'You are fantastic!',
   'You are awesome!',
   'Your smile is contagious!',
   'You are an inspiration!'
 ];
-
-// Everything above this line from before will be the same
-bot.on('start', () => {
-  // We will now make the bot post a message to a specific user on startup
-  // Replace <USERNAME> with your username
-  bot.postMessageToUser(
-    // The user we want to send a message to
-    'kungen',
-    // The message to send
-    'I am online!'
-  );
-});
 
 // The current compliment
 let currentCompliment = 0;
