@@ -1,4 +1,5 @@
 const SlackBot = require('slackbots');
+const { random } = require('@kungwaz/slackbot-compliments');
 
 // create a bot
 const bot = new SlackBot({
@@ -10,14 +11,6 @@ bot.on('start', function() {
     // define channel, where bot exist. You can adjust it there https://my.slack.com/services
     bot.postMessageToChannel('general', 'Hello!', { icon_emoji: ':star:' });
 });
-
-// An array with compliments
-const compliments = [
-  'You are fantastic!',
-  'You are awesome!',
-  'Your smile is contagious!',
-  'You are an inspiration!'
-];
 
 // The current compliment
 let currentCompliment = 0;
@@ -33,15 +26,9 @@ bot.on('message', function(data) {
 
     if (user) {
       // The bot gets the user name from the user ID, and attempts to send the user a random complement
+      // We will now get a random compliment from our module
       bot.getUserById(user).then(({ name }) => {
-        bot.postMessageToUser(name, compliments[currentCompliment]);
-        currentCompliment =
-          // We increase the current compliment with one
-          (currentCompliment + 1 )
-          // We are suing modulus here
-          // It will make sure we never go outside of the array size
-          // This will result in the following pattern with out current array 0, 1, 2, 3, 0, 1, 2, 3, 0, ...
-          % compliments.length;
+        bot.postMessageToUser(name, random());
       });
     }
   }

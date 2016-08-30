@@ -21,9 +21,13 @@
   },
   "homepage": "https://github.com/KungWaz/slackbot",
   "dependencies": {
+    "@kungwaz/slackbot-compliments": "^1.0.0",
     "slackbots": "^0.5.2"
   },
   "engines": {
     "node": ">=6.0.0"
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.4"
   }
 }
