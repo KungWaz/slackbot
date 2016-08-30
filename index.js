@@ -9,7 +9,7 @@ const bot = new SlackBot({
 
 bot.on('start', function() {
     // define channel, where bot exist. You can adjust it there https://my.slack.com/services
-    bot.postMessageToChannel('general', 'Hello!', { icon_emoji: ':star:' });
+    bot.postMessageToChannel('kungchannel', 'Hello!', { icon_emoji: ':star:' });
 });
 
 // The current compliment
