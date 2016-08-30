@@ -1,0 +1,29 @@
+{
+  "name": "slackbot",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A basic slackbot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KungWaz/slackbot.git"
+  },
+  "keywords": [
+    "slackbot"
+  ],
+  "author": "Daniel Walz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KungWaz/slackbot/issues"
+  },
+  "homepage": "https://github.com/KungWaz/slackbot",
+  "dependencies": {
+    "slackbots": "^0.5.2"
+  },
+  "engines": {
+    "node": ">=6.0.0",
+  }
+}
